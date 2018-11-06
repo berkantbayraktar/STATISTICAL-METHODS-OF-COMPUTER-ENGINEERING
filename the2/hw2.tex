@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+%misc libraries goes here
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\noindent
+\HRule \\[3mm]
+\begin{flushright}
+
+                                         \LARGE \textbf{CENG 222}  \\[4mm]
+                                         \Large Statistical Methods for Computer Engineering \\[4mm]
+                                        \normalsize      Spring '2016-2017 \\
+                                           \Large   Assignment 2 \\
+					\normalsize Deadline: March 26, 23:59 \\
+					\normalsize Submission: via COW
+\end{flushright}
+\HRule
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Berkant Bayraktar \\
+Id Number : 2098796 \\
+
+% Write your answers below the section tags
+\section*{Answer 3.15}
+\subsection*{a)} 1 - P(X=0,Y=0) = 1 - 0.52 = 0.48 \\
+\subsection*{b)} 
+\begin{tabular}{| l | l |}
+\hline 
+\multicolumn{2}{|c|}{Marginal pmf of X}\\
+\hline
+x & P(X = x)\\
+\hline
+0 & 0.72\\
+\hline
+1 & 0.23\\
+\hline
+2 & 0.05\\
+\hline
+\end{tabular}
+\begin{tabular}{| l | l |}
+\hline 
+\multicolumn{2}{|c|}{Marginal pmf of Y}\\
+\hline
+y & P(Y = y)\\
+\hline
+0 & 0.76\\
+\hline
+1 & 0.17\\
+\hline
+2 & 0.07\\
+\hline
+\end{tabular}
+\\\\
+P(X=0,Y=0) = 0.52\\
+P(X=0).P(Y=0) = (0.72).(0.76) = 0.5472 \\
+Since P(X=0,Y=0) $\neq$ P(X=0) $\cdot$ P(Y=0) , X and Y are not independent. \\
+
+\section*{Answer 3.32}Let X be number of crashed computers during a severe thunderstorm.It is the number of successes in 4000 Bernoulli trials,thus X is Binomial with $\textbf{\textit{n}}$ = 4,000 and $\textbf{\textit{p}}$ = 1/800.Poisson approximation can be applied to X .\\
+
+$\lambda$ = $\textbf{\textit{n}}$.$\textbf{\textit{p}}$ 
+\subsection*{a)}$\textbf{\textit{P(X$<$10)}}$ = $\textbf{\textit{F(9)}}$ = 0.968
+\subsection*{b)}$\textbf{\textit{P(X=10)}}$ = $\textbf{\textit{F(10)}}$ -$\textbf{\textit{F(9)}}$ = (0.986) - (0.968) = 0.018
+
+\section*{Answer 3.35} Let X be the number of traffic accidents and T be the event "thunderstorm".During the thunderstorm,\\
+
+$\textbf{\textit{P(X=7 $\vert$ $T$)}}$ = $\frac{(\mathrm{e}^{-10})(10^7)}{7!}$ = 0.09 ,where $\lambda$ = 10\\\\
+When there is no thunderstorm,\\
+
+$\textbf{\textit{P(X=7 $\vert$ $T^C$)}}$ = $\frac{(\mathrm{e}^{-4})(4^7)}{7!}$ = 0.06 ,where $\lambda$ = 4\\
+
+By using Bayes Rule,\\
+
+{\large $\textbf{\textit{P(T $\vert$ X=7)}}$ = $\frac{\textbf{\textit{P(X=7 $\vert$ $T$)}} \textbf{\textit{P($T$)}}}{\textbf{\textit{P(X=7 $\vert$ $T$)}} \textbf{\textit{P($T$)}}+\textbf{\textit{P(X=7 $\vert$ $T^C$)}}\textbf{\textit{P($T^C$)}}}$ = $\frac{(0.09)(0.6)}{(0.09)(0.6)+(0.06)(1-0.6)}$ = 0.6923 }
+
+\section*{Answer 4.4}
+\subsection*{a)}
+We know that $\int\limits_{-\infty}^\infty f(x) \mathrm{d}x$ = 1 \\
+
+$\displaystyle{\int\limits_{0}^{10} (K - \frac{x}{50}) \mathrm{d}x  = Kx -\left.\frac{(x^2)}{(2)(50)} \right | _0^{10} = 10K - 1}$\\
+Since 10K - 1 = 1 , we get K = 0.2 \\
+
+\subsection*{b)}
+We need to find P(X $<$ 5) which is equal to $\int\limits_0^5 f(x) \mathrm{d}x$ 
+
+$\displaystyle{\int\limits_{0}^{5} (0.2 - \frac{x}{50}) \mathrm{d}x  = (0.2)x -\left.\frac{(x^2)}{(2)(50)} \right | _0^{5} = 1 - 0.25 = 0.75}$\\
+
+\subsection*{c)}
+E(X) = $\displaystyle{\int xf(x)dx = \int\limits_{0}^{10} x(0.2 - \frac{x}{50})dx = \left[ \frac{(0.2)(x^2)}{(2)} - \left.\frac{(x^3)}{(3)(50)}\right]  \right | _0^{10}} $
+
+$\displaystyle{=10 - \frac{20}{3} = 3.3333}$ years
+
+\section*{Answer 4.10}
+
+Let A be the event that the first specialist is working on the order and W be the event that the order is not ready in 30 minutes. \\
+
+$\textbf{\textit{P(A$\vert$W)}}$ = $\frac{\textbf{\textit{P(A $\cap$ W)}}}{\textbf{\textit{P(W)}}} $ \\
+
+The event W can occur in two ways.
+
+1- The first scientist got the order, but it is not ready yet. 
+
+2- The second scientist got the order, but it is not ready yet. \\
+
+$\textbf{\textit{P(W)}}$ = $ 0.6 \times \mathrm{e}^{\frac{-3}{2}} + 0.4 \times \mathrm{e}^{-1} $ \\
+
+$\textbf{\textit{P(A$\vert$W)}}$ = $\frac{0.6 \times \mathrm{e}^\frac{-3}{2}}{ 0.6 \times \mathrm{e}^{\frac{-3}{2}} + 0.4 \times \mathrm{e}^{-1}} $ = 0.476
+
+
+\end{document}
+

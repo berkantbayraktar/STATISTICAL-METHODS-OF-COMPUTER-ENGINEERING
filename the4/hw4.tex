@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+%misc libraries goes here
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\noindent
+\HRule \\[3mm]
+\begin{flushright}
+
+                                         \LARGE \textbf{CENG 222}  \\[4mm]
+                                         \Large Statistical Methods for Computer Engineering \\[4mm]
+                                        \normalsize      Spring '2016-2017 \\
+                                           \Large   Assignment 4 \\
+                    \normalsize Deadline: May 26, 23:59 \\
+                    \normalsize Submission: via COW
+\end{flushright}
+\HRule
+
+\section*{Student Information }
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Berkant Bayraktar \\
+Id Number : 2098796 \\
+
+% Write your answers below the section tags
+\section*{Answer 9.8}
+\subsection*{a)}
+Confidence interval for the mean when $\sigma$ is known : $\overline{X}$ $\pm$ z $\textsubscript{$\alpha / 2$}$ $\frac{\sigma}{\sqrt{n}}$ \\
+
+\begin{center}
+$\sigma$ = 5 , n = 64 \\
+
+\begin{align*}
+1 - \alpha &= 0.95 \\
+\alpha / 2 &=0.025 \\
+\end{align*}
+
+\begin{align*}
+\overline{X} \pm z\textsubscript{$\alpha$/2}\frac{\sigma}{\sqrt{n}}&=42 \pm z \textsubscript{0.025} \frac{5}{\sqrt{64}}\\
+&=42 \pm 1.96 \frac{5}{\sqrt{64}}\\
+&=\textbf{[40.775,43.225]} \\
+\end{align*}
+\end{center}
+
+\subsection*{b)}
+Standardize and use Table A4.For a Normal($\mu = 900 , \sigma = 200$) variable X,
+
+\begin{align*}
+P(40.775 \leq X \leq 43.225) &=P(\frac{40.775- \mu}{\sigma} \leq \frac{X- \mu}{\sigma} \leq \frac{43.225 - \mu}{\sigma}) \\
+&=P(\frac{40.775 - 40}{5} \leq Z \leq \frac{43.225 - 40}{5}\\
+&=P( 0.155 \leq Z \leq 0.645) \\
+&=\Phi(0.645) - \Phi(0.155) = 0.7406 - 0.5616 = \textbf{0.1790}\\
+\end{align*}
+
+\section*{Answer 9.16}
+\subsection*{a)}
+We have $\eta \textsubscript{1}$ = 250 , $\eta \textsubscript{2}$ = 300 , $\hat{p}\textsubscript{1}$  = 10/250 = 0.04 and  $\hat{p}\textsubscript{2}$ = 18/300 = 0.06.For the confidence interval,we have \\
+\begin{center}
+center = $\hat{p}\textsubscript{1}$- $\hat{p}\textsubscript{2}$ = -0.02 \\
+\end{center}
+and
+\begin{center}
+\begin{align*}
+margin &=z\textsubscript{0.02/2} \sqrt{\frac{\hat{p}\textsubscript{1} (1 - \hat{p}\textsubscript{1})}{\eta \textsubscript{1}} + \frac{\hat{p}\textsubscript{2} (1 - \hat{p}\textsubscript{2})}{\eta \textsubscript{2}}}\\
+&=(2.326) \sqrt{\frac{(0.04) (0.96)}{(250)} + \frac{(0.06) (0.94)}{(300)}}\\
+&=0.043\\
+\end{align*}
+
+\end{center}
+Then
+\begin{center}
+-0.02 $\pm$ 0.043 = $\textbf{[-0.063,0.023]}$
+\end{center}
+
+\subsection*{b)}
+We are 98\% sure that the real value of the difference of proportions p$\textsubscript{1}$ and $p\textsubscript{2}$ is between -0.063 and 0.023.There is $\textbf{no}$ significant difference between the quality of the two lots.
+
+\section*{Answer 10.3}
+I chose to divide the observations into 10 bins, as follows: \\\\
+
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Bin}       & \multicolumn{1}{l|}{\textbf{Observed Counts}} \\ \hline
+(\textless -2.0)   & 4                                             \\ \hline
+(-2.0, -1.5)       & 4                                             \\ \hline
+(-1.5, -1.0)       & 15                                            \\ \hline
+(-1.0, -0.5)       & 9                                             \\ \hline
+(-0.5, 0.0)        & 22                                            \\ \hline
+(0.0, 0.5)         & 15                                            \\ \hline
+(0.5, 1.0)         & 12                                            \\ \hline
+(1.0, 1.5)         & 11                                            \\ \hline
+(1.5, 2.0)         & 7                                             \\ \hline
+(\textgreater 2.0) & 1                                             \\ \hline
+\end{tabular}
+\\\\
+
+\subsection*{a)}
+
+The corresponding standard normal probabilities and the expected number of observations (with n=100) are the following:\\\\
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Bin}       & \textbf{\begin{tabular}[c]{@{}c@{}}Observed \\ Counts\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Standart Normal \\ Probability\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Expected \\ Counts\end{tabular}} & \textbf{Observed-Expected} & \textbf{Chi-Square} \\ \hline
+(\textless -2.0)   & 4                                                                   & 0.023                                                                           & 2.3                                                                 & 1.7                          & 1.26                      \\ \hline
+(-2.0, -1.5)       & 4                                                                   & 0.044                                                                           & 4.4                                                                 & -0.4                         & 0.04                      \\ \hline
+(-1.5, -1.0)       & 15                                                                  & 0.092                                                                           & 9.2                                                                 & 5.8                          & 3.66                      \\ \hline
+(-1.0, -0.5)       & 9                                                                   & 0.150                                                                           & 15.0                                                                & -6.0                         & 2.40                      \\ \hline
+(-0.5, 0.0)        & 22                                                                  & 0.191                                                                           & 19.1                                                                & 2.9                          & 0.44                      \\ \hline
+(0.0, 0.5)         & 15                                                                  & 0.191                                                                           & 19.1                                                                & -4.1                         & 0.88                      \\ \hline
+(0.5, 1.0)         & 12                                                                  & 0.150                                                                           & 15.0                                                                & -3.0                         & 0.60                      \\ \hline
+(1.0, 1.5)         & 11                                                                  & 0.092                                                                           & 9.2                                                                 & 1.8                          & 0.36                      \\ \hline
+(1.5, 2.0)         & 7                                                                   & 0.044                                                                           & 4.4                                                                 & 2.6                          & 1.53                      \\ \hline
+(\textgreater 2.0) & 1                                                                   & 0.023                                                                           & 2.3                                                                 & -1.3                         & 0.73                      \\ \hline
+\end{tabular}\\
+
+The chi-square statistic is the sum of of the values in the last column, and is equal to \textbf{11.89}.Since the data are divided into 10 bins and we have estimated two parameters,the calculated value may be tested against the chi-square distribution with 10 -1 -2 = 7 degrees of freedom. \\
+\begin{center}
+\textit{\textbf{P = P$\lbrace\chi^2\geq11.89\rbrace$ = between 0.1 and 0.2}}
+\end{center}
+{\large We conclude that there is no evidence against a Standard Normal distribution of collected sample.}
+
+
+
+\subsection*{b)}
+
+The corresponding uniform probabilities and the expected number of observations (with n=100) are the following:
+\\
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Bin}       & \textbf{\begin{tabular}[c]{@{}c@{}}Observed \\ Counts\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Uniform \\ Probability\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Expected \\ Counts\end{tabular}} & \textbf{Observed - Expected} & \textbf{Chi-Square} \\ \hline
+(\textless -2.0)   & 4                                                                   & 0.166                                                                   & 16.6                                                                & -12.6                        & 9.56                      \\ \hline
+(-2.0, -1.5)       & 4                                                                   & 0.083                                                                   & 8.3                                                                 & -4.3                         & 2.23                      \\ \hline
+(-1.5, -1.0)       & 15                                                                  & 0.083                                                                   & 8.3                                                                 & 6.7                          & 5.40                      \\ \hline
+(-1.0, -0.5)       & 9                                                                   & 0.083                                                                   & 8.3                                                                 & 0.7                          & 0.06                      \\ \hline
+(-0.5, 0.0)        & 22                                                                  & 0.083                                                                   & 8.3                                                                 & 13.7                         & 22.61                     \\ \hline
+(0.0, 0.5)         & 15                                                                  & 0.083                                                                   & 8.3                                                                 & 6.7                          & 5.40                      \\ \hline
+(0.5, 1.0)         & 12                                                                  & 0.083                                                                   & 8.3                                                                 & 3.7                          & 1.65                      \\ \hline
+(1.0, 1.5)         & 11                                                                  & 0.083                                                                   & 8.3                                                                 & 2.7                          & 0.88                      \\ \hline
+(1.5, 2.0)         & 7                                                                   & 0.083                                                                   & 8.3                                                                 & -1.3                         & 0.20                      \\ \hline
+(\textgreater 2.0) & 1                                                                   & 0.166                                                                   & 16.6                                                                & -15.6                        & 14.67                     \\ \hline
+\end{tabular}\\\\
+
+The chi-square statistic is the sum of of the values in the last column, and is equal to \textbf{62.66}.Since the data are divided into 10 bins,the calculated value may be tested against the chi-square distribution with 10 -1 = 9 degrees of freedom.\\\\
+{\large There is significant evidence that the distribution is \textbf{not} Uniform.}
+
+\subsection*{c)}
+Yes,accepting both null hypotheses in (a) and (b) is theoretically possible although they are contradicting to each other.Because, when we apply the $\chi^2$ goodness-of-fit test , we can only show that the hypotheses is wrong.If we can't find significant evidence to reject the hypotheses , this means that the hypotheses may be true.
+
+\end{document}
+
+
